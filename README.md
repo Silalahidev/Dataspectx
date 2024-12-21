@@ -1,6 +1,6 @@
 # DataSpectx - Data Enthusiast 
 
-Welcome to **DataSpectx**! This is a new portfolio website built by **Jadihot Silalahi**, a passionate data enthusiast, showcasing my work in the field of data science and analytics. As a data enthusiast, I strive to explore and apply various data techniques to provide insightful and impactful results.
+Welcome to **DataSpectx**! This is a new platform website built by **Jadihot Silalahi**, a passionate data enthusiast, showcasing my work in the field of data science and analytics. As a data enthusiast, I strive to explore and apply various data techniques to provide insightful and impactful results.
 
 **DataSpectx** is where you can find various projects, tutorials, and my journey as I dive deep into the world of data analysis, machine learning, and data visualization. It serves as a collection of my efforts to solve complex problems with data and the tools available in the data science community.
 

@@ -15,7 +15,7 @@ Follow me and stay connected on Instagram to explore my latest projects and upda
 ## Live Demo
 
 Check out the live demo of my portfolio website:  
-[Live Demo](https://jadihotsilalahi.github.io/dataspectx)
+[Live Demo](https://silalahidev.github.io/Dataspectx/)
 
 ## Join Me
 

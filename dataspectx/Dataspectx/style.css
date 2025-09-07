@@ -1,0 +1,88 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #000000, #0f3d0f);
+  color: #e5e5e5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #111;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 255, 100, 0.4);
+  width: 350px;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #00ff7f;
+  font-size: 28px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #00ff7f;
+  background: #222;
+  color: #fff;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #00cc66;
+  outline: none;
+  box-shadow: 0 0 8px #00ff7f;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #00ff7f;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00cc66;
+  transform: scale(1.05);
+}
+
+a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #00ff7f;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #00cc66;
+}
+
+/* Animasi halus */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

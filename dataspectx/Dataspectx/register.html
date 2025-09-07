@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } 
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // Konfigurasi Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNqxmE4M9KNnzIbSJ41GORj9JD0Hj6T6U",
+      authDomain: "dataspectx-web.firebaseapp.com",
+      projectId: "dataspectx-web",
+      storageBucket: "dataspectx-web.firebasestorage.app",
+      messagingSenderId: "712181104167",
+      appId: "1:712181104167:web:bed12ca315e6f497585802"
+    };
+
+    // Inisialisasi
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Register
+    async function register() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      if (!email || !password) return alert("Isi email & password!");
+      if (password.length < 6) return alert("Password minimal 6 karakter!");
+
+      try {
+        await createUserWithEmailAndPassword(auth, email, password);
+        alert("Akun berhasil dibuat!");
+        window.location.href = "index.html"; 
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    }
+
+    window.register = register;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>REGISTER</h1>
+    <input type="email" id="email" placeholder="Email"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+
+    <button onclick="register()">Daftar</button><br><br>
+    <a href="login.html">Sudah punya akun? Login</a>
+  </div>
+</body>
+</html>

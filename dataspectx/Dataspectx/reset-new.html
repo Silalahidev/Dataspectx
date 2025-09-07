@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Buat Password Baru</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, verifyPasswordResetCode, confirmPasswordReset }
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNqxmE4M9KNnzIbSJ41GORj9JD0Hj6T6U",
+      authDomain: "dataspectx-web.firebaseapp.com",
+      projectId: "dataspectx-web",
+      storageBucket: "dataspectx-web.firebasestorage.app",
+      messagingSenderId: "712181104167",
+      appId: "1:712181104167:web:bed12ca315e6f497585802"
+    };
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // ambil token oobCode dari URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const oobCode = urlParams.get("oobCode");
+
+    async function resetPassword() {
+      const newPassword = document.getElementById("newPassword").value;
+
+      try {
+        await verifyPasswordResetCode(auth, oobCode); 
+        await confirmPasswordReset(auth, oobCode, newPassword);
+        alert("Password berhasil direset! Silakan login kembali.");
+        window.location.href = "login.html";
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    }
+
+    window.resetPassword = resetPassword;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Buat Password Baru</h1>
+    <input type="password" id="newPassword" placeholder="Password baru"><br>
+    <button onclick="resetPassword()">Simpan Password</button><br><br>
+    <a href="login.html">Kembali ke Login</a>
+  </div>
+</body>
+</html>

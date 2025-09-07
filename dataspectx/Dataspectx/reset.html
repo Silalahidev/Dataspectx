@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Reset Password</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } 
+      from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+    // Konfigurasi Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyBNqxmE4M9KNnzIbSJ41GORj9JD0Hj6T6U",
+      authDomain: "dataspectx-web.firebaseapp.com",
+      projectId: "dataspectx-web",
+      storageBucket: "dataspectx-web.firebasestorage.app",
+      messagingSenderId: "712181104167",
+      appId: "1:712181104167:web:bed12ca315e6f497585802"
+    };
+
+    // Inisialisasi
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Reset Password
+    async function resetPassword() {
+      const email = document.getElementById("email").value.trim();
+      if (!email) return alert("Masukkan email kamu!");
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        alert("Link reset password sudah dikirim ke " + email);
+        window.location.href = "login.html"; // balik ke login setelah sukses
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    }
+
+    window.resetPassword = resetPassword;
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>RESET PASSWORD</h1>
+    <p>Masukkan email kamu untuk menerima link reset password.</p>
+    <input type="email" id="email" placeholder="Email"><br>
+    <button onclick="resetPassword()">Kirim Link Reset</button><br><br>
+    <a href="login.html">Kembali ke Login</a>
+  </div>
+</body>
+</html>
